@@ -1,8 +1,11 @@
 class Solution {
     public String solution(int num) {
-       if ( num % 2 == 0){
-           return ("Even");
-       }else
-           return ("Odd");
+        String answer = "";
+        if (num % 2 == 0) {
+            answer = "Even";
+        } else {
+        answer = "Odd";
+        }
+        return answer;
     }
 }
