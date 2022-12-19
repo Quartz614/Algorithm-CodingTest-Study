@@ -1,14 +1,18 @@
 class Solution {
     public int[] solution(long n) {
-        String str = String.valueOf(n);
-        int[] answer = new int[str.length()];
+        long num = n;
+        int cnt = 0;
         
-        int i = 0;
+        while (num != 0) {
+            num /= 10;
+            cnt++;
+        }
+        int[] answer = new int[cnt];
         
-        while (n > 0) {
-            answer[(int) i] = (int) (n % 10);
-            n /= 10;
-            i++;
+        num = n;
+        for (int i = 0; num != 0; i++) {
+            answer[i] = (int)(num % 10);
+            num /= 10;
         }
         return answer;
     }
