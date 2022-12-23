@@ -1,21 +1,11 @@
 import java.util.*;
-
 class Solution {
     public long solution(long n) {
         long answer = 0;
-
-        String number = Long.toString(n);
-    
-        String arr[] = new String[number.length()];
-        for (int i = 0; i < number.length(); i++){
-            arr[i] = number.substring(i, i + 1);
-        }
-        Arrays.sort(arr, Collections.reverseOrder());
-        
-        String result = "";
-        for (String i : arr) {
-            result += i;
-        }
-        return Long.parseLong(result);
+        String str = String.valueOf(n);
+        char[] s = str.toCharArray();
+        Arrays.sort(s);
+        String sb = new StringBuilder(new String(s)).reverse().toString();
+        return Long.parseLong(sb);
     }
 }
