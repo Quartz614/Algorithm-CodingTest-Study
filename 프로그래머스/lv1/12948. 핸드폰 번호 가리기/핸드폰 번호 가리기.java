@@ -4,8 +4,7 @@ class Solution {
         for (int i = 0; i < phone_number.length(); i++) {
             if (i < phone_number.length() - 4) {
                 answer += "*";
-            } 
-            else {
+            } else {
                 answer += phone_number.charAt(i);
             }
         }
