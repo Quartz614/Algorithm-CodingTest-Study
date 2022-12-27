@@ -9,7 +9,6 @@ class Solution {
                 answer -= absolutes[i];
             }
         }
-        
         return answer;
     }
 }
