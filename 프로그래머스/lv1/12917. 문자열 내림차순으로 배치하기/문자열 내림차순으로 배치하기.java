@@ -1,9 +1,10 @@
 import java.util.*;
 class Solution {
     public String solution(String s) {
-       char arr[] = s.toCharArray();
-        Arrays.sort(arr);
+        char[] ch = s.toCharArray();
+        Arrays.sort(ch);
+        StringBuilder sb = new StringBuilder(String.valueOf(ch));
+        return sb.reverse().toString();
         
-        return new StringBuilder(String.valueOf(arr)).reverse().toString();
     }
 }
