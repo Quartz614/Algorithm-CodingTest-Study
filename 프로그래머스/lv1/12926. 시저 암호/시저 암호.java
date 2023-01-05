@@ -1,17 +1,17 @@
-import java.util.*;
 class Solution {
     public String solution(String s, int n) {
         String answer = "";
         for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == ' ') {
-                answer += c;
+            char ch = s.charAt(i);
+            if (ch == ' ') {
+                answer += ch;
                 continue;
             }
-            if (Character.isLowerCase(c)) {
-                answer += (char) ((c - 'a' + n) % 26 + 'a');
-            } else if (Character.isUpperCase(c)) {
-                answer += (char)((c - 'A' + n) % 26 + 'A');
+            if (Character.isLowerCase(ch)) {
+                answer += (char)((ch - 'a' + n) % 26 + 'a');
+            } else if (Character.isUpperCase(ch)) {
+                answer += (char)((ch - 'A' + n) % 26 + 'A');
+        
             }
         }
         return answer;
