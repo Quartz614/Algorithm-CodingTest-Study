@@ -1,19 +1,25 @@
 import java.util.*;
-
 class Solution {
     public String[] solution(String[] strings, int n) {
-        String[] answer = {};
-        ArrayList<String> list = new ArrayList<>();
+        Arrays.sort(strings);
+        String[] answer = new String[strings.length];
         
-        for (int i = 0; i < strings.length; i++) {
-            list.add(strings[i].charAt(n) + strings[i]);
+        for(int i = 0; i < strings.length; i++) {
+            answer[i] = strings[i].substring(n, n+1);
         }
-        Collections.sort(list);
+        Arrays.sort(answer);
         
-        answer = new String[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            answer[i] = list.get(i).substring(1, list.get(i).length());
+        List<String> list = new ArrayList<>(Arrays.asList(strings));
+        for(int i = 0; i < answer.length; i++) {
+            for(int j = 0; j < list.size(); j++) {
+                if(list.get(j).substring(n, n+1).equals(answer[i])) {
+                    answer[i] = list.get(j);
+                    list.remove(list.get(j));
+                    break;
+                }
+            }
         }
+        
         return answer;
     }
 }
