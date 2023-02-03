@@ -1,19 +1,17 @@
 class Solution {
     boolean solution(String s) {
-        char[] arr = s.toCharArray();
-        int pCnt = 0;
-        int yCnt = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if(arr[i] == 'p' || arr[i] == 'P') {
+        int pCnt = 0, yCnt = 0;
+        String[] arr = s.toLowerCase().split("");
+        
+        for(int i = 0; i < arr.length; i++) {
+            if (arr[i].equals("p")) {
                 pCnt++;
-            } else if (arr[i] == 'y' || arr[i] == 'Y') {
+            } else if (arr[i].equals("y")) {
                 yCnt++;
             }
         }
-        if (pCnt == yCnt) {
-            return true;
-        } else {
-            return false;
-        }
+        if (pCnt == yCnt) return true;
+        else if(pCnt != yCnt) return false;
+        else return false;
     }
 }
