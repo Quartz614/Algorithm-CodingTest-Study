@@ -1,20 +1,27 @@
+import java.util.*;
+
 class Solution {
     public int[] solution(int[] arr) {
-        if (arr.length == 1) {
-            int[] answer = {-1};
-            return answer;
-        }
-        int[] answer = new int[arr.length - 1];
-        int min = arr[0];
+        int[] tmp = arr.clone();
+        Arrays.sort(tmp);
+        int min = tmp[0];
+        
+        ArrayList<Integer> list = new ArrayList<Integer>();
         for (int i = 0; i < arr.length; i++) {
-          min = Math.min(min, arr[i]);
-        }
-        int idx = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == min) {
-                continue;
+            if (arr[i] != min) {
+                list.add(arr[i]);
             }
-            answer[idx++] = arr[i];
+        }
+        
+        int[] answer;
+        if(list.size() == 0) {
+            answer = new int[1];
+            answer[0] = -1;
+        } else {
+            answer = new int[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                answer[i] = list.get(i);
+            }
         }
         return answer;
     }
