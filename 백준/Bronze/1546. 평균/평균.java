@@ -1,21 +1,25 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        double[] arr = new double[N]; // 점수
-        double max = 0; // 최댓값
-        double avg = 0; // 평균
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        double arr[] = new double[Integer.parseInt(br.readLine())];
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextInt();
-            if (arr[i] > max) {
-                max = arr[i];
-            }
+            arr[i] = Double.parseDouble(st.nextToken());
         }
-        for (int j = 0; j < arr.length; j++) {
-            avg += (arr[j]/max * 100) / N;
+
+        double sum = 0;
+        Arrays.sort(arr);
+
+        for (int i = 0; i < arr.length; i++) {
+            sum += ((arr[i] / arr[arr.length - 1]) * 100);
         }
-        System.out.println(avg);
+        System.out.println(sum / arr.length);
     }
 }
