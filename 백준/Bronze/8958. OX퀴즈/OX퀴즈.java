@@ -1,24 +1,34 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        String str = "";
-        int sum = 0;
-        for (int i = 0; i < n; i++) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringBuilder sb = new StringBuilder();
+        int test_case = Integer.parseInt(br.readLine());
+
+        String arr[] = new String[test_case];
+
+        for (int i = 0; i < test_case; i++) {
+            arr[i] = br.readLine();
+        }
+        for (int i = 0; i < test_case; i++) {
+
             int cnt = 0;
-            sum = 0;
-            str = sc.next();
-            for (int j = 0; j < str.length(); j++) {
-                if (str.charAt(j) == 'O') {
+            int sum = 0;
+
+            for (int j = 0; j < arr[i].length(); j++) {
+                if (arr[i].charAt(j) == 'O') {
                     cnt++;
-                    sum += cnt;
-                } else if (str.charAt(j) =='X'){
+                } else {
                     cnt = 0;
                 }
+                sum += cnt;
             }
-            System.out.println(sum);
+            sb.append(sum).append('\n');
         }
+        System.out.print(sb);
     }
 }
