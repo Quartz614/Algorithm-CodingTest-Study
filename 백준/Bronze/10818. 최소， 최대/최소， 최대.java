@@ -1,18 +1,24 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        int i = 0;
         int[] arr = new int[N];
-        for (int i = 0; i < arr.length; i++){
-            arr[i] = sc.nextInt();
+        while(st.hasMoreTokens()) {
+            arr[i] = Integer.parseInt(st.nextToken());
+            i++;
         }
+
         Arrays.sort(arr);
-        int max = arr[arr.length - 1];
-        int min = arr[0];
-        System.out.println(min);
-        System.out.println(max);
+        System.out.println(arr[0] + " " + arr[N - 1]);
     }
 }
-
